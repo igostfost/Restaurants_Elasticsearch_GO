@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Recomend Places</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Выберите предпочтительный шрифт */
+            background-color: #f9f9f9; /* Цвет фона страницы */
+            color: #333; /* Цвет текста */
+            margin: 20px; /* Отступы от краев для контента */
+        }
+
+        h5 {
+            color: #007BFF; /* Цвет заголовка */
+            font-size: 20px; /* Размер шрифта заголовка */
+        }
+
+        ul {
+            list-style-type: none; /* Убираем маркеры списка */
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff; /* Цвет фона элемента списка */
+            margin-bottom: 15px; /* Отступ между элементами списка */
+            padding: 15px; /* Внутренний отступ элемента списка */
+            border: 1px solid #ddd; /* Граница элемента списка */
+            border-radius: 5px; /* Скругленные углы элемента списка */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень элемента списка */
+        }
+
+        a {
+            color: #007BFF; /* Цвет ссылки */
+            text-decoration: none; /* Убираем подчеркивание */
+            margin-right: 10px; /* Отступ между ссылками */
+            font-weight: bold; /* Жирный текст ссылки */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Подчеркивание при наведении */
+        }
+    </style>
+</head>
+
+<body>
+     <!-- Заголовок с общим количеством мест -->
+     <h5>Top 3 Closest Restaurants from {{.Total}}</h5>
+    <ul>
+        {{range .Places}}
+            <li>
+                <div><strong>{{.Name}}</strong></div>
+                <div>{{.Address}}</div>
+                <div>{{.Phone}}</div>
+            </li>
+        {{end}}
+    </ul>
+</body>
+</html>

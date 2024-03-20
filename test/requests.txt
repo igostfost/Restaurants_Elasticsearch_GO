@@ -1,0 +1,2 @@
+curl -H "Authorization: Bearer token" "http://127.0.0.1:8888/api/recommend?lat=55.674&lon=37.666"
+curl -HGET "http://127.0.0.1:8888/api/recommend?lat=55.674&lon=37.666"

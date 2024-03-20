@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Указываем кодировку и заголовок страницы -->
+    <meta charset="utf-8">
+    <title>Places</title>
+    <!-- Мета-теги для описания и определения масштабирования -->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Стили для элементов страницы */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 10px; /* Уменьшенный отступ */
+        }
+
+        h5 {
+            color: #007BFF;
+            font-size: 16px; /* Уменьшенный размер шрифта */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin-bottom: 10px; /* Уменьшенный отступ */
+            padding: 10px; /* Уменьшенный внутренний отступ */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            margin-right: 5px; /* Уменьшенный отступ */
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Заголовок с общим количеством мест -->
+    <h5>Total Places: {{.Total}}</h5>
+    <!-- Список мест с динамическими данными -->
+    <ul>
+        {{range .Places}}
+        <li>
+            <div><strong>{{.Name}}</strong></div>
+            <div>{{.Address}}</div>
+            <div>{{.Phone}}</div>
+        </li>
+        {{end}}
+    </ul>
+    <!-- Ссылки на страницы с пагинацией -->
+    {{if .FirstPage}}
+    <a href="/web/places?page={{.FirstPage}}">First page</a>
+    {{end}}
+    {{if .HasPrev}}
+    <a href="/web/places?page={{.PrevPage}}">Prev page</a>
+    {{end}}
+    {{if .HasNext}}
+    <a href="/web/places?page={{.NextPage}}">Next page</a>
+    {{end}}
+    <a href="/web/places?page={{.LastPage}}">Last page</a>
+</body>
+
+</html>
